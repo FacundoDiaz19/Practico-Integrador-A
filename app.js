@@ -7,8 +7,8 @@ const countries = require('./countries.json');
  * @returns {array}
  */
 function getCountryNameByIso3(isoCode){
-    const name = countries.find(country => country.iso3 === isoCode)
-    return name.name
+    const countryIso = countries.find(country => country.iso3 === isoCode)
+    return countryIso.name
 }
 
 /**
@@ -29,7 +29,20 @@ function getCountryNameByIso3(isoCode){
  * @returns {Object}
  */
 function getCountrySummary(isoCode){
-    //complete with your code
+    const Data = countries.find(country => country.iso3 === isoCode)
+    const object = {
+        name: Data.name,
+        iso3: Data.iso3,
+        iso2: Data.iso2,
+        phone_code: Data.phone_code,
+        capital: Data.capital,
+        currency: Data.currency ,
+        tld: Data.tld ,
+        region: Data.region ,
+        emoji: Data.emoji ,
+    }
+
+    return object
 }
 
 function main() {
